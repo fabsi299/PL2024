@@ -1,7 +1,10 @@
 import sys
 
 def ler_dataset(caminho_arquivo):
-    with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo: return [{cabecalho[i]: valor for i, valor in enumerate(linha.strip().split(','))} for cabecalho in [arquivo.readline().strip().split(',')] for linha in arquivo.readlines()]
+    with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo:
+        cabecalho = arquivo.readline().strip().split(',')
+        linhas = [linha.strip().split(',') for linha in arquivo.readlines()]
+        return [dict(zip(cabecalho, linha)) for linha in linhas]
     # o arquivo será fechado automaticamente após a conclusão do bloco
 def ordenar_modalidades(dados):
     return sorted(set([row['modalidade'] for row in dados]), key=str.lower)
