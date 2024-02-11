@@ -7,4 +7,5 @@ Aqui serão armazenados todos os trabalhos da Unidade Curricular de Processament
 
 - **Nome:** Fábio Daniel Rodrigues Leite
 - **ID:** a100902
-- **Foto:** <img src="pic.jpg" alt="Fotografia do aluno" width="300" height="300">
+- **Foto:
+<img src="pic.jpg" alt="Fotografia do aluno" width="300" height="300">
