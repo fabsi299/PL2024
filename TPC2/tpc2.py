@@ -3,6 +3,8 @@ import sys
 
 def markdown_to_html(markdown):
     # Headers
+    markdown = re.sub(r'(?u)^#####\s*(.+)$', r'<h5>\1</h5>', markdown, flags=re.MULTILINE)
+    markdown = re.sub(r'(?u)^####\s*(.+)$', r'<h4>\1</h4>', markdown, flags=re.MULTILINE)
     markdown = re.sub(r'(?u)^###\s*(.+)$', r'<h3>\1</h3>', markdown, flags=re.MULTILINE)
     markdown = re.sub(r'(?u)^##\s*(.+)$', r'<h2>\1</h2>', markdown, flags=re.MULTILINE)
     markdown = re.sub(r'(?u)^#\s*(.+)$', r'<h1>\1</h1>', markdown, flags=re.MULTILINE)
@@ -14,9 +16,8 @@ def markdown_to_html(markdown):
     markdown = re.sub(r'\*(.+?)\*', r'<i>\1</i>', markdown)
 
     # Numbered list
-    markdown = re.sub(r'(?u)^(\d+)\.\s+(.+)$', r'<li>\2</li>', markdown, flags=re.MULTILINE)
-    markdown = re.sub(r'(?<=<\/li>)(?=<li>)', '\n', markdown)
-    markdown = '<ol>\n' + markdown + '</ol>'
+    markdown = re.sub(r'(?<=\n)(\d+\.) (.+?)(?=\n\n|\n\s*\d+\.|\Z)', r'<li>\2</li>', markdown, flags=re.DOTALL)
+    markdown = re.sub(r'(\n<li>.+?</li>)+', r'\n<ol>\g<0>\n</ol>', markdown)
 
     # Links
     markdown = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', r'<a href="\2">\1</a>', markdown)

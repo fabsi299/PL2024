@@ -1,11 +1,32 @@
-# Exemplo
-Este é um **exemplo** de conversão de *Markdown* para HTML.
+# Título Principal
 
-## Lista numerada
+Este é um **exemplo** de arquivo Markdown que inclui vários elementos diferentes.
+
+## Cabeçalhos
+
+### Cabeçalho de Nível 3
+
+#### Cabeçalho de Nível 4
+
+##### Cabeçalho de Nível 5
+
+## Estilos de Texto
+
+**Negrito**
+
+*Itálico*
+
+## Listas
+
+### Lista Numerada
+
 1. Primeiro item
 2. Segundo item
 3. Terceiro item
 
-Veja mais em [página da UC](http://www.uc.pt).
 
-Como se vê na imagem seguinte: ![imagem dum coelho](http://www.coellho.com)
+## Links e Imagens
+
+Link: [Google](http://www.google.com)
+
+Imagem: ![Logo Python](https://www.python.org/static/community_logos/python-logo.png)
